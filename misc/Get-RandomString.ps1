@@ -29,11 +29,21 @@
         [Int32]$Length
     )
 
-    if ($length -gt 0){
+    if ($length -gt 0 -and $Length -le 62){
 
         -Join ((65..90) + (97..122) + (48..57) | 
             Get-Random -Count $length |
                 ForEach-Object {[Char]$_})
+    }
+    elseif ($length -gt 62){
+        $string = ""
+        while ($string.Length -lt $Length){
+            $string += -Join ((65..90) + (97..122) + (48..57) | 
+                Get-Random -Count $($length - $string.length) |
+                    ForEach-Object {[Char]$_})
+        }
+
+        return $String
     }
     else {
         return ""

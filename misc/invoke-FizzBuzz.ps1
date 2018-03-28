@@ -6,7 +6,7 @@
     .DESCRIPTION
         function to play Fizz Buzz for n iterations
 
-    .EXAMPLES
+    .EXAMPLE
         Invoke-FizzBuzz
 
     .NOTES

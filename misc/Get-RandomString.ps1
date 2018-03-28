@@ -19,7 +19,7 @@
             Version: 1.0.0.0
             OriginalAuthor : Ed Wilson
 
-        .LINKS
+        .LINK
             https://blogs.technet.microsoft.com/heyscriptingguy/2015/11/05/generate-random-letters-with-powershell/
 
     #>

@@ -30,11 +30,23 @@
         [byte]$NumberOfNonAlpha = 4
     )
 
-    if ($NumberOfNonAlpha -gt $length)
-    {
-        throw [System.ArgumentOutOfRangeException]::new("Number of non alpha ($NumberOfNonAlpha) is greater than Password length ($length)");
+    begin {
+        Try{
+
+            Add-Type -AssemblyName System.Web
+        } 
+        Catch {
+            Throw $_
+            break;
+        }
     }
 
-    ConvertTo-SecureString -String $([System.Web.Security.Membership]::GeneratePassword($length,$NumberOfNonAlpha)) -AsPlainText -Force;
+    process {
 
+     if ($NumberOfNonAlpha -gt $length){
+        throw [System.ArgumentOutOfRangeException]::new("Number of non alpha ($NumberOfNonAlpha) is greater than Password length ($length)");
+        }
+
+        ConvertTo-SecureString -String $([System.Web.Security.Membership]::GeneratePassword($length,$NumberOfNonAlpha)) -AsPlainText -Force;
+    }
 }

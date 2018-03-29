@@ -15,7 +15,7 @@ Describe "Convert-String-to-bytearray_valid_ConvertTo-ByteArray" {
 Describe "Convert-String-to-bytearray_invalid_ConvertTo-ByteArray" {
     . ../public/ConvertTo-ByteArray.ps1;
 
-    It "Should Throw invalid data exception if input is not string" {
+    It "Should Throw invalid data exception if input is not string or castable to a string." {
         try {
             $GCI = Get-ChildItem;
 

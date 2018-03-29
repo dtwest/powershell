@@ -12,6 +12,9 @@
 
     .OUTPUTS String
 
+    .PARAMETER SecureString
+        Is a SecureString, eg the output from the command New-Password is a secure string.
+
 	.NOTES
 		Author : Dylan West
 		version: 1.0.0.0

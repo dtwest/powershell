@@ -28,6 +28,33 @@ Function Invoke-TernaryOperator {
 
     PS C:\Users\Dtwest>
 
+    .EXAMPLE
+    PS C:\Users\Dtwest> $iterations = 15
+    PS C:\Users\Dtwest> 1 ..$iterations | 
+    % {
+        ?? ($_ % 3 -eq 0 -and $_ % 5 -eq 0) {"FizzBuzz"} {
+            ?? ($_ % 3 -eq 0) {"Fizz"} {
+                ?? ($_ % 5 -eq 0) {"Buzz"} {$_}
+            }
+        }
+    }
+    
+    1
+    2
+    Fizz
+    4
+    Buzz
+    Fizz
+    7
+    8
+    Fizz
+    Buzz
+    11
+    Fizz
+    13
+    14
+    FizzBuzz
+
     .NOTES
     Author : Dylan West
     Version: 1.0.0.0

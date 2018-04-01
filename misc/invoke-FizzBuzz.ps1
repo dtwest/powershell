@@ -58,4 +58,15 @@
     #         $i
     #     }
     # }
+
+    # Alternate implementation 3 using invoke-ternaryoperator (??)
+
+    # 1 ..$iterations | 
+    #     % {
+    #         ?? ($_ % 3 -eq 0 -and $_ % 5 -eq 0) {"FizzBuzz"} {
+    #             ?? ($_ % 3 -eq 0) {"Fizz"} {
+    #                 ?? ($_ % 5 -eq 0) {"Buzz"} {$_}
+    #             }
+    #         }
+    #     }
 }

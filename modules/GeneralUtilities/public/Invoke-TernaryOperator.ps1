@@ -8,7 +8,7 @@ Function Invoke-TernaryOperator {
         Adds a ternary operator to powershell, the alias ?? ( | This-function) is set by my general utilities module 
 
     .EXAMPLE
-    (condition) | Invoke-TernaryOperator {if true this script block} {else this script block}
+    Invoke-TernaryOperator (condition) {if true this script block} {else this script block}
 
     .EXAMPLE
     ?? ($predicate) {"true"} {"false"}

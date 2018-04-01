@@ -3,7 +3,7 @@
 	Aliases
 
 #>
-
+Set-Alias -Name "??" -Value "Invoke-TernaryOperator" # is in file but here to export.
 <#
 
 	Variables
@@ -38,4 +38,4 @@ Foreach ($Function in @($Public + $Private)){
 
 }
 
-Export-ModuleMember -Function $Public.BaseName
+Export-ModuleMember -Function $Public.BaseName -Alias *

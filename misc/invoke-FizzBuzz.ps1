@@ -16,21 +16,46 @@
     [cmdletbinding()]
     param(
         [Parameter(position=0,ValueFromPipeline)]
-        [Int]$Iterations = 100
+        [Int]$Iterations = 15
     )
 
-    for ($i = 1; $i -le $Iterations; $i++){
-        if (($i % 3 -eq 0) -and ($i % 5 -eq 0)){
+    1..$iterations | 
+    Foreach-Object {
+        if (($_ % 3 -eq 0) -and ($_ % 5 -eq 0)){
             Write-Output "FizzBuzz";
         }
-        elseif ($i % 3 -eq 0){
+        elseif ($_ % 3 -eq 0){
             Write-Output "Fizz";
         }
-        elseif ($i % 5 -eq 0) {
+        elseif ($_ % 5 -eq 0) {
             Write-Output "Buzz";
         }
         else {
-            $i
-        }
+            $_
+        } 
     }
+
+    # Alternate implementaion 1 (using teneray (false, true)[predicate])
+
+    # 1..$Iterations | 
+    #     ForEach-Object {
+    #         ((($_, "Buzz")[($_ % 5 -eq 0)],"Fizz")[($_ % 3 -eq 0)],"FizzBuzz")[($_ % 3 -eq 0 -and $i % 5 -eq 0)]
+    #     }
+
+    # Alternate implementation 2
+
+    # for ($i = 1; $i -le $Iterations; $i++){
+    #     if (($i % 3 -eq 0) -and ($i % 5 -eq 0)){
+    #         Write-Output "FizzBuzz";
+    #     }
+    #     elseif ($i % 3 -eq 0){
+    #         Write-Output "Fizz";
+    #     }
+    #     elseif ($i % 5 -eq 0) {
+    #         Write-Output "Buzz";
+    #     }
+    #     else {
+    #         $i
+    #     }
+    # }
 }

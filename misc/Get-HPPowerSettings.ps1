@@ -22,7 +22,9 @@ function Get-HPPowerSettings {
         [Parameter(Mandatory,ValueFromPipeline,Position=0)]
         [Alias("Computers", "Computer")]
         [string]
-        $ComputerName
+        $ComputerName,
+
+        [pscredential]$Credential
     )
     
     begin {
@@ -51,6 +53,10 @@ function Get-HPPowerSettings {
                 New-Object -TypeName PSObject -Property $output
             
             }
+        }
+
+        if ($PSBoundParameters['Credential']){
+            $InvokeCommandParams.Credential = $Credential;
         }
     }
     

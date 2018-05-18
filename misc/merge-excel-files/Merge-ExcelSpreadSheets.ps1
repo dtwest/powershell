@@ -1,15 +1,14 @@
 Function Merge-ExcelSpreadSheets {
     <#
     .SYNOPSIS
+    Given cells in a comma seperated string and a parent directory, grabs all Excel files, imports and then merges them
     
     .DESCRIPTION
-    Long description
-    
-    .EXAMPLE
-    An example
+     Given cells in a comma seperated string and a parent directory, grabs all Excel files, imports and then merges them
     
     .NOTES
-    General notes
+    Author : Dylan West
+    Version: 1.0.0.0
     #>
     [CmdletBinding()]
     param(
